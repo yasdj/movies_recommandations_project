@@ -1,0 +1,125 @@
+/* Sidebar principale */
+.label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-6px);
+  transition: opacity 0.15s ease, transform 0.15s ease,
+    visibility 0s linear 0.3s; /* cache après la fermeture */
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 60px; /* largeur minimale pour icônes quand fermée */
+  background: linear-gradient(100deg, #0c0423e1, #b69fea27);
+  color: #fff;
+  backdrop-filter: blur(30px);
+  transition: width 0.3s ease;
+  z-index: 35;
+  overflow: hidden;
+}
+
+.sidebar.open .label {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+  transition-delay: 0.3s;
+}
+
+.sidebar.open {
+  width: 260px; /* largeur complète quand ouverte */
+}
+
+.sidebar:not(.open) .label {
+  transition-delay: 0s;
+}
+
+/* Navigation */
+.nav {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 40dvh;
+  padding-top: 10dvh;
+  padding-bottom: 3dvh;
+  padding-right: 3dvh;
+  padding-left: 3dvh;
+  box-sizing: border-box;
+}
+
+/* Liens */
+.link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  color: white;
+  font-size: 85%;
+  font-weight: 600;
+}
+
+.iconBox {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.link:hover {
+  background: linear-gradient(45deg, #edcd3e, #d63d8d);
+}
+
+.sidebar:not(.open) .nav {
+  padding: 10dvh 1dvh 3dvh 1dvh;
+}
+
+/* Séparateurs */
+.separator {
+  font-size: 75%;
+  margin-bottom: 8px;
+}
+
+/* Icônes des liens */
+.icon {
+  color: white;
+  font-size: 22px;
+  min-width: 22px;
+  margin-right: 1dvh;
+}
+
+/* Containers principaux */
+.mainMenuContainer,
+.systemContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Bouton du menu flottant */
+.menuButtonSidebar {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+  background: transparent;
+  color: white;
+}
+
+.menuIconSidebar {
+  font-size: 22px;
+}

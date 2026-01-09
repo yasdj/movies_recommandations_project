@@ -1,0 +1,40 @@
+.helpContainer {
+  display: flex;
+  gap: 3dvh;
+  padding: 3dvh;
+}
+
+.recommandationContainer,
+.playlistContainer {
+  max-width: 700px;
+  width: 100%;
+  margin: 40px auto;
+  background: rgba(255, 255, 255, 0.08); /* transparent white */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  padding: 24px;
+  color: white;
+}
+
+.recommandationContainer h2 {
+  font-weight: 600;
+}
+
+.playlistBullets {
+  margin: 8px 0 0 18px;
+  padding: 0;
+}
+
+.playlistBullets li {
+  margin: 6px 0;
+}
+
+.recommandationContainer ol li::marker,
+.playlistContainer ol li::marker {
+  font-size: 22px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+}

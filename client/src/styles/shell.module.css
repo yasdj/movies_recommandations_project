@@ -1,0 +1,27 @@
+/* components/Shell.module.css */
+.shell {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.glassCard {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.main {
+  min-height: 100vh;
+  padding-top: 64px;
+  transition: margin-left 0.2s ease;
+  padding-left: 60px;
+}
+
+.shifted {
+  padding-left: 260px; /* sidebar ouverte */
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+}

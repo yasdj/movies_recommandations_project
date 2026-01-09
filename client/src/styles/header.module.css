@@ -1,0 +1,249 @@
+/* ----- HEADER FIXE ----- */
+.header {
+  position: fixed;
+  top: 0;
+  left: 60px;
+  right: 0;
+  height: 10dvh;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  background: transparent;
+  z-index: 10;
+  transition: left 0.3s ease;
+}
+
+.headerShift {
+  left: 260px;
+}
+
+.brand {
+  font-weight: 600;
+}
+
+/* ----- SEARCH BAR ----- */
+.searchContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.inputBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.inputBox input {
+  width: 100%;
+  outline: none;
+  border-radius: 13px;
+  border: none;
+  background: linear-gradient(200deg, #ac37ff61, #4a465c);
+  font-size: 13px;
+  color: white;
+  padding: 8px 16px;
+  box-sizing: border-box;
+  box-shadow: none;
+  background-clip: padding-box;
+}
+
+.inputBox input::placeholder {
+  color: white;
+}
+
+.inputBox .searchIcon {
+  color: white;
+  position: absolute;
+  right: 12px;
+  pointer-events: none;
+}
+
+/* ----- PROFILE ----- */
+.rightArea {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatar {
+  border-radius: 9999px;
+  margin-top: 1dvh;
+}
+
+.profileName {
+  color: #333;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
+}
+
+/* ----- OVERLAY PLEIN ÉCRAN POUR LA RECHERCHE ----- */
+.searchOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 85dvh;
+  background: linear-gradient(5deg, #6747aa, #010721);
+  overflow-y: auto;
+  padding: 3dvh 1dvh 3dvh; /* espace en haut pour ne pas cacher le header */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10dvh;
+  z-index: 998;
+  transition: left 0.3s ease, width 0.3s ease;
+  color: white;
+}
+
+.searchOverlay.sidebarOpen {
+  left: 240px; /* largeur du sidebar */
+  width: calc(100% - 240px);
+}
+
+.searchOverlay p {
+  margin-top: 40px;
+  font-size: 16px;
+  color: #555;
+}
+
+/* ----- GRID DE FILMS ----- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 20px;
+}
+
+.card {
+  cursor: pointer;
+  text-align: center;
+  padding: 8px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+}
+
+.card.active {
+  border: 2px solid #4a90e2;
+  border-radius: 8px;
+}
+
+.poster {
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* Style spécial si c'est l'image par défaut */
+.noPoster {
+  max-width: 100%;
+  height: auto;
+  background: rgb(238, 238, 238);
+  padding: 7.5dvh 0 7.5dvh;
+}
+
+/* ----- AJOUT POUR OVERLAY ET ICONES ----- */
+.posterWrapper {
+  position: relative;
+  display: block;
+}
+
+.posterWrapper img {
+  display: block; /* supprime l'espace blanc sous l'image */
+  width: 100%;
+  border-radius: 8px;
+}
+
+.overlay {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20%;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.posterWrapper:hover .overlay {
+  opacity: 1;
+}
+
+.iconWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon {
+  font-size: 22px;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 8px;
+  margin-top: 1dvh;
+  margin-bottom: 1dvh;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.activeIcon {
+  color: #4a90e2;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 40px;
+  background: black;
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  margin-bottom: 1dvh;
+  border-radius: 6px;
+  opacity: 0;
+  white-space: nowrap;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+
+.iconWrapper:hover .tooltip {
+  opacity: 1;
+}

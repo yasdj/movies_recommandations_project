@@ -1,0 +1,260 @@
+.container {
+  padding: 0;
+  min-height: 100vh;
+  margin: 0 12% 5% 12%;
+  padding-bottom: 80px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.navigationContainer {
+  height: 100%;
+  color: white;
+  font-size: 8dvh;
+  margin-bottom: 3dvh;
+  font-family: inherit;
+}
+
+.banner {
+  background: linear-gradient(45deg, #edcd3ee7, #d63d8cc8);
+  height: 37dvh;
+  padding: 0;
+  margin: 0;
+  border-top-right-radius: 40px;
+  border-top-left-radius: 40px;
+}
+
+.profileInfo {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 3dvh;
+  padding: 0 2dvh;
+  background: radial-gradient(circle, #4f328e, #010721);
+  color: white;
+  border-radius: 40px;
+  margin-bottom: 2dvh;
+  transform: translateY(-50px);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.profileDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1dvh;
+  margin-top: -8dvh;
+  margin-left: 3dvh;
+  margin-bottom: 2dvh;
+}
+
+.picture {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(187, 137, 44, 0.741);
+}
+
+.picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: none;
+}
+
+.editProfile {
+  display: flex;
+  margin-right: 3dvh;
+  margin-top: 2.5dvh;
+  flex-shrink: 1;
+}
+
+.editProfile button {
+  position: relative;
+  width: 22dvh;
+  height: 6.5dvh;
+  background: transparent;
+  border: none; /* on enlève le border classique */
+  border-radius: 16px;
+  outline: none;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 20px;
+  color: white;
+  overflow: hidden; /* nécessaire pour que le pseudo-élément ne déborde pas */
+}
+
+.editProfile button::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* couvre tout le bouton */
+  padding: 3px; /* épaisseur du border */
+  border-radius: inherit; /* reprend le border-radius du bouton */
+  background: linear-gradient(45deg, #edcd3e, #d63d8d);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  pointer-events: none; /* le pseudo-élément ne bloque pas les clics */
+}
+
+.description {
+  text-align: start;
+}
+
+.username {
+  font-weight: 600;
+}
+
+.bio {
+  font-family: inherit;
+  font-size: 11px;
+  text-align: center;
+  width: 15dvh;
+  height: 3dvh;
+  background: #d63d8cc8;
+  border: none;
+  outline: none;
+  border-radius: 40px;
+  margin-top: 1.5dvh;
+  margin-bottom: 1dvh;
+  padding-top: 5px;
+  color: white;
+  font-weight: 500;
+  box-shadow: 0px 10px 12px rgba(0, 0, 0, 0.2);
+}
+
+.laterContainer,
+.watchedContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(45deg, #edcd3e62, #4d138c9f);
+  color: white;
+  backdrop-filter: blur(10px);
+  border-radius: 40px;
+  height: 240px;
+  margin-top: 5dvh;
+  margin-bottom: 15px;
+  transform: translateY(-50px);
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* empêche les films de dépasser */
+  padding: 50px 10px 10px 10px;
+}
+
+.title {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-weight: 600;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.laterMoviesWrapper,
+.watchedMoviesWrapper {
+  position: relative;
+  display: flex;
+  width: 100%;
+  overflow-x: auto; /* permet le scroll horizontal */
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(180, 180, 180, 0.7) transparent;
+  gap: 10px;
+  padding: 0 10px;
+}
+
+.laterMoviesWrapper::-webkit-scrollbar,
+.watchedMoviesWrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.laterMoviesWrapper::-webkit-scrollbar-track,
+.watchedMoviesWrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.laterMoviesWrapper::-webkit-scrollbar-thumb,
+.watchedMoviesWrapper::-webkit-scrollbar-thumb {
+  background: rgba(180, 180, 180, 0.7);
+  border-radius: 999px;
+}
+
+.laterMoviesWrapper::-webkit-scrollbar-thumb:hover,
+.watchedMoviesWrapper::-webkit-scrollbar-thumb:hover {
+  background: rgba(200, 200, 200, 0.9);
+}
+
+.laterMoviesWrapper::-webkit-scrollbar-corner,
+.watchedMoviesWrapper::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.moviesWrapper {
+  display: flex;
+  overflow-x: auto; /* scroll horizontal */
+  width: 100%; /* prend toute la largeur du container */
+  gap: 10px;
+  padding: 0 10px;
+  scroll-behavior: smooth;
+}
+
+.moviesList {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1px;
+}
+
+.movies {
+  flex: 0 0 auto; /* garde la taille fixe */
+  max-width: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5px;
+  padding-right: 25px;
+}
+.movies img {
+  width: 120px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.2s ease-in-out;
+  box-shadow: 0 0 10px rgba(18, 18, 18, 0.582);
+}
+.movies img:hover {
+  transform: scale(1.05);
+}
+
+.movieTitle {
+  margin-top: 5px;
+  text-align: center;
+  font-size: 12px;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word; /* coupe les mots trop longs */
+}
+
+.scrollButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  font-size: 24px;
+  height: 50%;
+  cursor: pointer;
+  padding: 0 5px;
+  z-index: 5;
+}

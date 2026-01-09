@@ -1,0 +1,51 @@
+/* Cacher la scrollbar par défaut */
+html,
+body,
+#__next {
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(350deg, #412973, #010721);
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+
+/* Firefox */
+html,
+body {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(180, 180, 180, 0.7) transparent;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Chrome / Safari / Edge (WebKit) */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* --- États "en cours de scroll" --- */
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background: rgba(180, 180, 180, 0.7); /* small grey thumb */
+  border-radius: 999px;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover {
+  background: rgba(200, 200, 200, 0.9);
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
